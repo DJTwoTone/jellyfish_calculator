@@ -1,0 +1,354 @@
+#calculator__section {
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    font-family: "ABeeZee", sans-serif;
+    background-color: #016c73;
+    width: 100%;
+    /* height: 100vh; */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+#calculator__body {
+    background-color: #0a6268;
+    padding: 1rem 2rem;
+    width: 80%;
+    max-width: 800px;
+}
+#calculator__body hr {
+    color: white;
+}
+
+#calculator__form-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 43rem) {
+    #calculator__form-inputs {
+        flex-direction: column;
+
+    }
+}
+
+#calculator__form-inputs input, select {
+    /* width: 100%; */
+    padding: 0.5rem;
+    border: 2px solid #fff;
+    border-radius: 0.25rem;
+    background-color: #0a6268;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#calculator__form-inputs input:focus, select:focus{
+    outline: none !important;
+    border: 2px solid #3e0173;
+    background-color: #3e0173;
+    /* box-shadow: 0 0 10px #719ECE; */
+}
+
+#form__ingredient-search-wrapper {
+    width: 60%;
+}
+
+
+#search__ingredients-area {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    background-color: #016c73;
+    margin-right: 2rem;
+
+}
+
+@media (max-width: 43rem) {
+    #form__ingredient-search-wrapper {
+        width: 90%;
+    }
+    #search__ingredients-area {
+        height: 400px;
+        
+}
+}
+
+#search__ingredients-area label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 10rem;
+    padding: 10px;
+    border: solid 2px #ffffff;
+    transition: all 0.3s ease-in-out;
+    background-color: #0a6268;
+}
+#search__ingredients-area label:hover {
+    background-color: #3e0173;
+}
+
+#search__ingredients-area input[type="radio"]{
+    display: none;
+}
+
+#search__ingredients-area input[type="radio"]:checked + label {
+    background-color: #3e0173;
+    border: solid 2px #ffffff;
+}
+
+
+
+#form__ingredient-values-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form__ingredient-values-wrapper label {
+    font-size: 1rem;
+    margin-bottom: .8rem;
+}
+
+#form__ingredient-values-wrapper input, select {
+    /* width: 100%; */
+    /* padding: 10px; */
+    margin-bottom: .8rem;
+    border: solid 2px #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+#form__ingredient-values-wrapper select {
+    width: 100%;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    padding: 10px;
+    border: solid 2px #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0 0 auto;
+    color: #ffffff;
+    background-color: #0a6268;
+    font-size: 1rem;
+
+}
+
+button:hover {
+    background-color: #3e0173;
+}
+
+#calculator__servings-selector {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 2.5ch;
+}
+
+.servings-container {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.serving-unit {
+    /* height: 2rem; */
+    width: 2rem;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.serving-unit:hover {
+    font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.1s;
+    background-color: #3e0173;
+}
+
+.serving-unit.selected {
+    font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.1s;
+    background-color: #3e0173;
+}
+
+
+
+/* .ingredients-list__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.ingredient-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.ingredient-container span {
+    display: flex;
+    flex-direction: row;
+}
+
+.ingredient-name, .ingredient-unit {
+    margin-right: 2.5rem;
+} */
+
+#recipe-table {
+    width: 100%;
+}
+
+#recipe-table th {
+    text-align: left;
+    padding-bottom: 20px;
+
+}
+
+#header_ingredient-name {
+    width: 40%;
+}
+
+.ingredients-list__item td {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 43rem) {
+    #recipe-table th {
+        font-size: .8rem;
+        text-align: center;
+    
+    }
+    .ingredients-list__item td {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+/* .fa-trash {
+    margin-left: 2rem;
+} */
+
+#calculator__dialog {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: none;
+    background-color: rgba(1, 108, 115, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#calculator__dialog.closed {
+    display: none;
+}
+
+#calculator__dialog-forms {
+    /* margin: auto;
+    top: 50vh;
+    transform: translate(0, 30vh); */
+    background-color: rgb(1, 108, 115);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    width: min(90%, 800px);
+    padding: 10px 0;
+    border: #fff solid 3px;
+}
+
+
+
+#calculator__dialog-forms label {
+    font-size: 1rem;
+    margin-bottom: .8rem;
+}
+
+#calculator__dialog-forms input {
+
+    margin-bottom: .8rem;
+    border: solid 2px #ffffff;
+    border-radius: 5px;
+
+}
+
+
+#calculator__div-login, #calculator__div-signup {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+#calculator__form-signup, #calculator__form-login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#calculator__form-login-button, #calculator__form-signup-button {
+    width: 200px;
+    margin-top: 20px;;
+}
+
+@media (max-width: 43rem) {
+    #calculator__dialog {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+    #calculator__dialog-forms {
+        flex-direction: column;
+        align-items: center;
+        width: min(90%, 40rem);
+
+    }
+
+    #calculator__div-login, #calculator__div-signup {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+
+    
+    #calculator__form-signup, #calculator__form-login {
+
+        margin-top: 20px;
+    }
+}

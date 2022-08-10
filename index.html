@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Calculator</title>
+
+    <!-- Put styles from styles.css in the code block here -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- // Need to be added with the code block -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/24524c8947.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h1>Recipe Calculator</h1>
+    <section id="calculator__section">
+        <div id="calculator__dialog">
+            <div id="calculator__dialog-forms">
+
+                <div id="calculator__div-login">
+                    <h2>Login</h2>
+                    <form id="calculator__form-login">
+                        <label for="calculator__form-login-email">Email Address</label>
+                        <input type="email" id="calculator__form-login-email" name="email" placeholder="Email">
+                        <label for="calculator__form-login-password">Password</label>
+                        <input type="password" id="calculator__form-login-password" name="password"
+                            placeholder="Password">
+                        <button id="calculator__form-login-button" type="submit">Login</button>
+                    </form>
+                    <p id="calculator__login-error"></p>
+                </div>
+                <div id="calculator__div-signup">
+                    <h2>Sign Up</h2>
+                    <form id="calculator__form-signup">
+                        <label for="calculator__form-signup-name">Name</label>
+                        <input type="text" id="calculator__form-signup-name" name="name" placeholder="Name">
+                        <label for="calculator__form-signup-email">Email Address</label>
+                        <input type="email" id="calculator__form-signup-email" name="email" placeholder="Email">
+                        <label for="calculator__form-signup-password">Password</label>
+                        <input type="password" id="calculator__form-signup-password" name="password"
+                            placeholder="Password">
+                        <label for="calculator__form-signup-password-confirm">Confirm Password</label>
+                        <input type="password" id="calculator__form-signup-password-confirm" name="password-confirm"
+                            placeholder="Confirm Password">
+                        <button id="calculator__form-signup-button" type="submit">Sign Up</button>
+                    </form>
+                    <p id="calculator__signup-error"></p>
+                </div>
+            </div>
+        </div>
+        <div id="calculator__body">
+            <div id="calculator__header">
+                <h2 id="calculator__heading">Recipe Efficiency Calculator</h2>
+                <hr />
+
+            </div>
+            <form id="calculator__form-add">
+                <div id="calculator__form-inputs">
+                    <div id="form__ingredient-search-wrapper">
+                        <label for="form__ingredient-search">Ingredient Search</label>
+                        <input type="text" id="form__ingredient-search" placeholder="Search for an ingredient...">
+                        <p>Choose an Ingredient:</p>
+                        <div id="search__ingredients-area"></div>
+                    </div>
+                    <div id="form__ingredient-values-wrapper">
+                        <label for="unit">Units: </label>
+                        <select id="form__ingredient-unit" name="unit" required>
+                            <option value="">--Please choose a unit--</option>
+                            <option disabled></option>
+                            <option value="mg">milligram - mg</option>
+                            <option value="g">gram - g</option>
+                            <option value="kg">kilogram - kg</option>
+                            <option value="oz">ounce - oz</option>
+                            <option value="lb">pound - lb</option>
+                            <option value="ml">milliliter - ml</option>
+                            <option value="l">liter - l</option>
+                            <option value="tsp">teaspoon - tsp</option>
+                            <option value="tbs">tablespoon - tbs</option>
+                            <option value="fl-oz">fluid-ounce - fl-oz</option>
+                            <option value="cup">cup - cup</option>
+                            <option value="pnt">pint - pnt</option>
+                            <option value="qt">quart - qt</option>
+                            <option value="gal">gallon - gal</option>
+                        </select>
+                        <label for="amount">Amount: </label>
+
+                        <input type="number" name="amount" id="form__ingredient-amount" min="0" required />
+                    </div>
+                </div>
+                <button id="form__ingredient-add-btn" class="add-ingrdient-btn">Add Ingredient</button>
+            </form>
+            <hr />
+            <div id="calculator__recipe-area">
+                <h3>Recipe:</h3>
+                <table id="recipe-table">
+                    <thead>
+                        <tr>
+                            <th id="header_ingredient-name">Ingredient</th>
+                            <th id="header_ingredient-amount">Amount</th>
+                            <!-- <th>Unit</th> -->
+                            <th id="header_ingredient-100g">gCO<sub>2</sub>e / 100g</th>
+                            <th id="header_ingredient-total">gCO<sub>2</sub>e Total</th>
+                            <th id="header_ingredient-btns"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="recipe-list">
+                    </tbody>
+                </table>
+                <!-- <ul id="recipe-list"></ul> -->
+                <button id="recipe-reset">Reset</button>
+            </div>
+            <div id="calculator__servings-selector">
+                <p>Servings</p>
+                <div class="servings-container">
+                    <div class="serving-unit selected">1</div>
+                </div>
+                <div class="servings-container">
+                    <div class="serving-unit">2</div>
+                </div>
+                <div class="servings-container">
+                    <div class="serving-unit">3</div>
+                </div>
+                <div class="servings-container">
+                    <div class="serving-unit">4</div>
+                </div>
+                <div class="servings-container">
+                    <div class="serving-unit">5</div>
+                </div>
+                <div class="servings-container">
+                    <div class="serving-unit">6</div>
+                </div>
+            </div>
+            <div id="calculator__efficiency-area">
+                <h3>Efficiency:</h3>
+                <h4>Per Serving:</h4>
+                <p id="efficiency-per-serving"></p>
+                <h4>Total:</h4>
+                <p id="efficiency-total"></p>
+
+            </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>
