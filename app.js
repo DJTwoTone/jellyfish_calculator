@@ -171,7 +171,7 @@ async function fetchAndDisplayIngredients() {
 async function fetchIngredients() {
     let token = localStorage.getItem('gojellytoken')
     let ingredientFetchHeader = new Headers();
-    ingredientFetchHeader.append('Authorization', `Bearer ${AUTH_COOKIE}`);
+    ingredientFetchHeader.append('Authorization', `Bearer ${token}`);
 
     let ingredientFetchOptions = {
         method: 'GET',
@@ -195,7 +195,7 @@ async function fetchIngredients() {
 async function fetchIngredientById(id) {
     let token = localStorage.getItem('gojellytoken')
     let ingredientFetchHeader = new Headers();
-    ingredientFetchHeader.append('Authorization', `Bearer ${AUTH_COOKIE}`);
+    ingredientFetchHeader.append('Authorization', `Bearer ${token}`);
 
     let ingredientFetchOptions = {
         method: 'GET',
