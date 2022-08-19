@@ -30,6 +30,8 @@ const signupError = document.querySelector('#calculator__signup-error');
 
 const efficiencyPerServing = document.getElementById("efficiency-per-serving");
 const efficiencyTotal = document.getElementById("efficiency-total");
+const milesTraveled = document.getElementById("miles-traveled");
+const cellphonesCharged = document.getElementById("cellphones-charged");
 
 const ingredientsResetButton = document.querySelector('#recipe-reset');
 
@@ -58,6 +60,15 @@ ingredientsResetButton.addEventListener('click', resetIngredientsList);
         buildIngredientsList();
     }
 })()
+
+function onInput(event) {
+    let value = parseFloat(event.value);
+    if (Number.isNaN(value)) {
+      document.getElementById('form__ingredient-amount').value = "0.00";
+    } else {
+      document.getElementById('form__ingredient-amount').value = value.toFixed(2);
+    }              
+  }
 
 async function login (evt) {
     evt.preventDefault();
@@ -116,6 +127,13 @@ async function signup (evt) {
         }
         let res = await fetch("https://api-test.gojellyfish.link/app/auth/signup", requestOptions)
         let result = await res.json();
+        if (result.error.split(' ')[0] === 'login_type,') {
+            throw new Error('Both a name and an email are required');
+        }
+        if (result.error.split(' ')[0] === 'There') {
+            throw new Error(`There is already a user with the email: ${result.error.split(': ')[1]}`);
+        }
+        // console.log(result);
         localStorage.setItem('gojellytoken', result.data.access_token);
         signupForm.reset();
         // document.querySelector('#calculator__dialog').close()
@@ -209,6 +227,7 @@ async function fetchIngredientById(id) {
     try {
         let res = await fetch(ingredientFetchUrl, ingredientFetchOptions);
         let result = await res.json();
+        console.log(result);
         return result.data;
     } catch (error) {
         console.log(error);
@@ -294,10 +313,10 @@ function buildIngredientsListItem(item) {
 
     let totalgco2e = convertToGrams(item) * gco2e / 100;
     ingredientName.innerText = name;
-    ingredientGco2e.innerText = `${gco2e} gCO2e`;
+    ingredientGco2e.innerText = `${gco2e.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e`;
     ingredientAmount.innerText = `${amount} ${unit}`;
     // ingredientUnit.innerText = `${unit}`;
-    ingredientTotal.innerText = `${totalgco2e.toFixed(2)} gCO2e`;
+    ingredientTotal.innerText = `${totalgco2e.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e`;
 
     // ingredientContainer.classList.add('ingredient-container');
     btnContainer.classList.add('btn-container');
@@ -418,7 +437,13 @@ function efficiencyMath() {
     )
     let perServing = totalgco2e / servings;
 
-    efficiencyPerServing.innerText = `${perServing.toFixed(2)} gCO2e per serving`;
-    efficiencyTotal.innerText = `${totalgco2e.toFixed(2)} gCO2e`;
+    let milesInAverageCar = totalgco2e / 403;
+
+    let cellphones = totalgco2e / 0.0822;
+
+    efficiencyPerServing.innerText = `${perServing.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e per serving`;
+    efficiencyTotal.innerText = `${totalgco2e.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e`;
+    milesTraveled.innerText = `${milesInAverageCar.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} miles`;
+    cellphonesCharged.innerText = `${cellphones.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} cellphones`;
 
 } 
