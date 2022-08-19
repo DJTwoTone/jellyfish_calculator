@@ -439,7 +439,7 @@ function efficiencyMath() {
 
     let milesInAverageCar = totalgco2e / 403;
 
-    let cellphones = totalgco2e / 0.0822;
+    let cellphones = totalgco2e * 0.0822;
 
     efficiencyPerServing.innerText = `${perServing.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e per serving`;
     efficiencyTotal.innerText = `${totalgco2e.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} gCO2e`;
